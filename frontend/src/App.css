@@ -1,0 +1,265 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Home Component Styles */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px auto;
+  width: 70%;
+  transition: transform 0.3s;
+}
+
+.home:hover {
+  transform: scale(1.02);
+}
+
+.home h1,
+.character-selection form label {
+  text-align: center;
+  color: #ff6f61;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin-bottom: 20px;
+}
+
+.home form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: #ff6f61;
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #e55b50;
+  transform: translateY(-2px);
+}
+
+/* ChatBot Component Styles */
+.chatbot {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  background-color: #e0f7fa;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 1rem;
+}
+
+.chatbot h1 {
+  text-align: center;
+  color: #0077b6;
+  margin-bottom: 20px;
+}
+
+.chatbot .character-selection {
+  margin-bottom: 20px;
+}
+
+.chatbot .parameter-display {
+  margin-bottom: 20px;
+}
+
+.chatbot .chat-window {
+  margin-bottom: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+/* Character Selection Styling */
+.character-selection {
+  flex-basis: 25%;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.character-selection button {
+  padding: 10px 15px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.character-selection button:hover {
+  background-color: #005f8a;
+}
+
+/* Chat Window Styling */
+.chat-window {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  overflow-y: hidden;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-window .chat-content {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.chat-window form {
+  display: flex;
+  width: 100%;
+}
+
+.chat-window input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  margin-right: -1px;
+}
+
+.chat-window button {
+  padding: 10px 20px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-window button:hover {
+  background-color: #005f8a;
+}
+
+/* Parameter Display Styles */
+.parameter-display {
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.parameter-display .param {
+  flex: 1;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #0077b6;
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+.parameter-display .param:last-child {
+  margin-bottom: 0;
+}
+
+.parameter-display .psychological-parameters {
+  height: 50%;
+  border: 1px solid #ccc;
+}
+
+.parameter-display .emotional-states {
+  height: 50%;
+  border: 1px solid #ccc;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  margin: 0.6rem 0.3rem;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.no-characters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: auto;
+}
