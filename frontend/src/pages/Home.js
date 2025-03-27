@@ -35,21 +35,18 @@ const Home = () => {
       if (res.data.userId) {
         setCharacters(res.data.characters);
         setUserId(res.data.userId);
-
-        // Organize chat history by character ID
-        const structuredChatHistory = res.data.conversation_history.reduce(
-          (acc, chat) => {
-            if (!acc[chat.character_id]) {
-              acc[chat.character_id] = [];
-            }
-            acc[chat.character_id].push({
-              user: chat.user_message,
-              bot: chat.bot_response,
-            });
-            return acc;
-          },
-          {}
-        );
+        const structuredChatHistory = (
+          res.data.conversation_history || []
+        ).reduce((acc, chat) => {
+          if (!acc[chat.character_id]) {
+            acc[chat.character_id] = [];
+          }
+          acc[chat.character_id].push({
+            user: chat.user_message,
+            bot: chat.bot_response,
+          });
+          return acc;
+        }, {});
 
         setChatHistory(structuredChatHistory);
         navigate("/chat-bot");

@@ -162,7 +162,8 @@ def generate_response(character, personality, user_message, conversation_history
     # Create a string version of the conversation history.
     # Each message is formatted with the sender's name and content.
     history_str = "\n".join([
-        f"{msg.role}: {msg.content}" for msg in conversation_history
+        f"{'Bot' if isinstance(msg, AIMessage) else 'User'}: {msg.content}" 
+        for msg in conversation_history
     ])
     
     psi_prompt = (

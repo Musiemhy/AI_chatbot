@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CharacterContext } from "../contexts/CharacterContext";
 
-const ChatWindow = ({ chatHistory, setChatHistory, sendMessage }) => {
+const ChatWindow = ({ chatHistory, sendMessage }) => {
   const [message, setMessage] = useState("");
   const { loading } = useContext(CharacterContext);
 
@@ -10,10 +10,6 @@ const ChatWindow = ({ chatHistory, setChatHistory, sendMessage }) => {
     if (message.trim()) {
       const userMessage = message;
       setMessage("");
-      setChatHistory((prevHistory) => [
-        ...prevHistory,
-        { user: userMessage, bot: "loading..." },
-      ]);
       await sendMessage(userMessage);
     }
   };
@@ -21,10 +17,21 @@ const ChatWindow = ({ chatHistory, setChatHistory, sendMessage }) => {
   return (
     <div className="chat-window">
       <div className="chat-content">
+        {chatHistory.length === 0 && (
+          <div className="no-messages">
+            No messages yet. Start the conversation!
+          </div>
+        )}
         {chatHistory.map((chat, idx) => (
           <div key={idx} className="chat-message">
-            <div className="message-bubble user-message">{chat.user}</div>
-            <div className="message-bubble bot-message">{chat.bot}</div>
+            {chat.user && (
+              <div className="message-bubble user-message">{chat.user}</div>
+            )}
+            {chat.bot && (
+              <div className="message-bubble bot-message">
+                {loading ? "loading..." : chat.bot}
+              </div>
+            )}
           </div>
         ))}
       </div>

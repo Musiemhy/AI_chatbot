@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import CharacterSelection from "../components/CharacterSelection";
 import ChatWindow from "../components/ChatWindow";
@@ -24,8 +24,6 @@ const ChatBot = () => {
 
   const handleCharacterSelect = (character) => {
     setSelectedCharacter(character);
-
-    setChatHistory(chatHistory[character.id] || []);
 
     setParameters({});
     setEmotionalStates({});
